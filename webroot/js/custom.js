@@ -26,6 +26,8 @@ $(function(){
 		$.post('login', $('.loginForm').serialize(), function(data){
 			if(data.status == 'success'){
 				window.location.href = '/my_app/accounts/dashboard';
+			} else {
+				$.notify("Wrong credential!!", 'error');
 			}
 		}, 'json');
 	});
