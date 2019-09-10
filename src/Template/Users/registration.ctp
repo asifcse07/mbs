@@ -94,7 +94,7 @@
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <label class="label">Passcode</label>
+                                    <label class="label">Personal code</label>
                                     <input class="input--style-4 passcode" type="text" name="passcode" autocomplete="off">
                                 </div>
                             </div>
