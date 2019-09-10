@@ -95,7 +95,7 @@ class AppController extends Controller
 
     public function beforeFilter(Event $event){
          $this->Auth->allow(array('registration', 'saveRegister', 'login'));
-        if (in_array($this->request->param('action'), ['registration', 'saveRegister', 'login','add', 'fundTransfer', 'report'])){
+        if (in_array($this->request->param('action'), ['registration', 'saveRegister', 'login','add', 'fundTransfer', 'report', 'checkBalance'])){
             $this->getEventManager()->off($this->Csrf);
         }
     }

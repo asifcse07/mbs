@@ -69,6 +69,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('dashboard', ['controller' => 'Accounts', 'action' => 'dashboard']);
     $routes->connect('transfer', ['controller' => 'AccountsTransactions', 'action' => 'fundTransfer']);
     $routes->connect('deposit', ['controller' => 'AccountsTransactions', 'action' => 'add']);
+    $routes->connect('checkBalance', ['controller' => 'Accounts', 'action' => 'checkBalance']);
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.

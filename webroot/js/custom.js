@@ -54,4 +54,16 @@ $(function(){
 			$('.reportTbl').html(data);
 		}, 'html')
 	});
+
+
+	$('.checkblnc').on('click',  function(e){
+		e.preventDefault();
+		$.post('/my_app/accounts/checkBalance', $('.chckblncForm').serialize(), function(data){
+			if(data.status == 'success'){
+				$('.blnc').val(data.msg + ' €')
+			} else {
+				$.notify(data.msg, 'error');
+			}
+		}, 'json');
+	},);
 });

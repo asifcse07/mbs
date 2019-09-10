@@ -140,8 +140,33 @@ class AccountsController extends AppController
 
     public function dashboard(){
         $userobj = $this->Auth->user();
+        $user_id = $this->Auth->user()->id;
+        $token = $this->request->getParam('_csrfToken');
         $user = $userobj->toArray();
         $full_name = trim($user['first_name'] . ' ' . $user['last_name']);
-        $this->set(compact('full_name'));
+        $accounts = $this->Accounts->find('list', [
+            'keyField' => 'id',
+            'valueField' => 'account_no'
+        ])->where(['user_id' => $user_id]);
+        $this->set(compact('full_name', 'accounts', 'user_id', 'token'));
+    }
+
+    public function checkBalance(){
+        if ($this->request->is('post')) {
+            // checkblnc
+            $return_arr = array();
+            if($this->request->data['account_id']){
+                $blnc = $this->Accounts->findById($this->request->data['account_id'])->toArray();
+                // print_r($blnc); die();
+                $return_arr['status'] = 'success';
+                $return_arr['msg'] = $blnc[0]['amount'];
+            } else {
+                $return_arr['status'] = 'error';
+                $return_arr['msg'] = 'Select Account';
+            }
+            
+        }
+        echo json_encode($return_arr);
+        die();
     }
 }
