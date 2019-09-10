@@ -45,7 +45,7 @@
                     </div>
 
                     <div class="wrap-input100 validate-input">
-                        <input class="input100 passcode" type="text" name="passcode" placeholder="passcode">
+                        <input class="input100 passcode" type="text" name="passcode" placeholder="Personal Code">
                         <span class="focus-input100"></span>
                         <!-- <span class="symbol-input100">
                             <i class="fa fa-envelope" aria-hidden="true"></i>
