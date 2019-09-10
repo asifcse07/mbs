@@ -63,6 +63,7 @@ $(function(){
 				$('.blnc').val(data.msg + ' €')
 			} else {
 				$.notify(data.msg, 'error');
+				$('.blnc').val(0);
 			}
 		}, 'json');
 	},);
